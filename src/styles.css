@@ -1,4 +1,5 @@
 
+@import '~bootstrap/dist/css/bootstrap.min.css';
 :root {
   /*fonts*/
   --body-font: 'IBM Plex Sans', sans-serif;
