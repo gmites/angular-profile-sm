@@ -1,1 +1,22 @@
-<p>profile-info works!</p>
+<form [formGroup]="myForm" (ngSubmit)="submit()">
+  <div class="mb-3">
+    <label for="username">Username:</label>
+    <input formControlName="username" id="username" type="text" class="form-control">
+    <div *ngIf="form.username.touched && form.username.invalid">
+        <small class="text-danger" *ngIf="form.username.errors?.required">Username is required.</small>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="email">Email:</label>
+    <input formControlName="email" id="email" type="email" class="form-control">
+    <div *ngIf="form.email.touched && form.email.invalid">
+      <small class="text-danger" *ngIf="form.email.errors?.required">Email is required.</small>
+      <small class="text-danger" *ngIf="form.email.errors?.pattern">Email is invalid</small>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="bio" class="form-label">Bio</label>
+    <textarea formControlName="bio" id="bio" class="form-control" rows="3"></textarea>
+  </div>
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form>

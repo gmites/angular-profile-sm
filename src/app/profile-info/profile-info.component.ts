@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { FormGroup, FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-profile-info',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileInfoComponent implements OnInit {
 
-  constructor() { }
-
   ngOnInit(): void {
   }
+  myForm = new FormGroup({
+    username: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")])
+  });
 
+  constructor(private http: HttpClient) { }
+
+  get form(){
+    return this.myForm.controls;
+  }
+
+  submit(){
+    console.log(this.myForm.value);
+    alert('Post to a web service....');
+  }
 }
