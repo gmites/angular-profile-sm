@@ -1,0 +1,8 @@
+header{
+  background-color:var(--dark-background-color);
+  color:var(--light-color);
+  padding: 0.2rem 1rem;
+}
+header h1{
+  text-align: right;
+}
