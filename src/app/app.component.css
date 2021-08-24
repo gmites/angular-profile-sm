@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  padding: 1.5rem;
+}
+
+.profile-details, .profile-map {
+  flex: 1;
+  padding: 2rem;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+  }
+}
