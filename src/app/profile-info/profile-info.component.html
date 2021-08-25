@@ -1,22 +1,35 @@
 <form [formGroup]="myForm" (ngSubmit)="submit()">
-  <div class="mb-3">
-    <label for="username">Username:</label>
-    <input formControlName="username" id="username" type="text" class="form-control">
-    <div *ngIf="form.username.touched && form.username.invalid">
-        <small class="text-danger" *ngIf="form.username.errors?.required">Username is required.</small>
+  <div class="center profile-img">
+    <label class="hoverable" for="fileInput">
+      <img [src]="imageSrc ? imageSrc : './assets/img/profile-default-img.jpg'" class="rounded-img">
+      <div class="hover-background"></div>
+      <input id="fileInput" type='file' (change)="onSelectFile($event)" class="hidden">
+    </label>
+    <label *ngIf="imageSrc" class="edit-icon">
+      <mat-icon>edit</mat-icon>
+      <input type="file" (change)="onSelectFile($event)" class="hidden"/>
+    </label>
+  </div>
+  <div class="profile-info-form">
+    <div class="mb-3">
+      <label for="username">Username:</label>
+      <input formControlName="username" id="username" type="text" class="form-control">
+      <div *ngIf="form.username.touched && form.username.invalid">
+          <small class="text-danger" *ngIf="form.username.errors?.required">Username is required.</small>
+      </div>
     </div>
-  </div>
-  <div class="mb-3">
-    <label for="email">Email:</label>
-    <input formControlName="email" id="email" type="email" class="form-control">
-    <div *ngIf="form.email.touched && form.email.invalid">
-      <small class="text-danger" *ngIf="form.email.errors?.required">Email is required.</small>
-      <small class="text-danger" *ngIf="form.email.errors?.pattern">Email is invalid</small>
+    <div class="mb-3">
+      <label for="email">Email:</label>
+      <input formControlName="email" id="email" type="email" class="form-control">
+      <div *ngIf="form.email.touched && form.email.invalid">
+        <small class="text-danger" *ngIf="form.email.errors?.required">Email is required.</small>
+        <small class="text-danger" *ngIf="form.email.errors?.pattern">Email is invalid</small>
+      </div>
     </div>
+    <div class="mb-3">
+      <label for="bio" class="form-label">Bio</label>
+      <textarea formControlName="bio" id="bio" class="form-control" rows="3"></textarea>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
   </div>
-  <div class="mb-3">
-    <label for="bio" class="form-label">Bio</label>
-    <textarea formControlName="bio" id="bio" class="form-control" rows="3"></textarea>
-  </div>
-  <button class="btn btn-primary" type="submit">Submit</button>
 </form>

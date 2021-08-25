@@ -1,0 +1,60 @@
+.rounded-img{
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.hoverable{
+  position: relative;
+  display: block;
+  cursor: pointer;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hoverable .hover-background{
+  position: absolute;
+  display: none;
+  top: 0;
+  left:  0;
+  bottom: 0;
+  right: 0;
+  background-color:rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.hoverable:hover .hover-background{
+  display: block;
+}
+
+.hidden{
+  display: none;
+}
+
+.edit-icon{
+  position: relative;
+  top: -12em;
+  left: 4.5em;
+  background-color: var(--light-background-color);
+  border-radius: 50%;
+  padding: 0.35rem 0.5em 0.05rem;
+  z-index: 3;
+}
+
+.profile-img{
+  background-color: var(--dark-background-color);
+  padding: 2rem;
+}
+
+.profile-info-form{
+  padding: 2rem;
+  background-color:#f0ebeb;
+}
+
+
