@@ -12,12 +12,13 @@ export class ProfileInfoComponent implements OnInit {
   ngOnInit(): void {
   }
   imageSrc: string = '';
+  submitted = false;
   myForm = new FormGroup({
     username: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]),
+    gender: new FormControl(''),
     bio: new FormControl(''),
-    file: new FormControl('', [Validators.required]),
-    fileSource: new FormControl('', [Validators.required])
+    fileSource: new FormControl('')
   });
 
   constructor(private http: HttpClient) { }
@@ -41,7 +42,11 @@ export class ProfileInfoComponent implements OnInit {
   }
 
   submit(){
-    console.log(this.myForm.value);
+    this.submitted = true;
+    if (this.myForm.invalid) {
+      return;
+    }
+    console.log(this.myForm.value)
     alert('Post to a web service....');
   }
 }
