@@ -1,1 +1,9 @@
-<p>map works!</p>
+  <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+    <agm-marker [latitude]="latitude" [longitude]="longitude">
+      <agm-info-window [disableAutoPan]="true" [isOpen]="true">
+        <p><b>Latitude:</b> {{latitude}}</p>
+        <p><b>Longitude:</b> {{longitude}}</p>
+      </agm-info-window>
+    </agm-marker>
+  </agm-map>
+  <button class="btn btn-primary mt-3" (click)="getCurrentLocation()">Get my location </button>
